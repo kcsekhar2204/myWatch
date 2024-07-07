@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.animate-wave-stretch {
+    animation: stretch 1s linear infinite;
+}
+
+@keyframes stretch {
+    0% { transform: scaleY(1);}
+    50% { transform: scaleY(2);}
+    100% { transform: scaleY(1);}
+}
