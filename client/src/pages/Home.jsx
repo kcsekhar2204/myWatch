@@ -24,7 +24,7 @@ const Home = () => {
             <div className="hero-content text-center mb-24">
                 <div className="max-w-md">
                     <h1 className="text-5xl font-bold">
-                        Welcome to <span className="text-teal-700">MyWatch</span>
+                        Welcome to <span className="text-teal-700">MovieWiz</span>
                     </h1>
                     <p className="py-6">
                         Presenting a diverse array of global movie and series hits.
