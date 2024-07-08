@@ -8,22 +8,23 @@ import Wave from '../components/WaveLoader';
 const EditFilm = () => {
 
     const [filmData, setFilmData] = useState({})
-    const [loading, setLoading] = useState(false);
+    const [pageLoading, setPageLoading] = useState(false);
+    const [loading, setLoading] = useState(false)
 
     const navigate = useNavigate();
     const { id } = useParams();
     const { enqueueSnackbar } = useSnackbar();
 
     useEffect(() => {
-        setLoading(true);
+        setPageLoading(true);
         axios
             .get(`http://localhost:3000/film/${id}`)
             .then((res) => {
                 setFilmData(res.data)
-                setLoading(false);
+                setPageLoading(false);
             })
             .catch((error) => {
-                setLoading(false);
+                setPageLoading(false);
                 console.log(error);
                 alert('An error happened. Check console');
             });
@@ -56,7 +57,7 @@ const EditFilm = () => {
                 <Link to="/admin" className='flex justify-center items-center
             btn mb-4 w-12 py-2 px-4 text-sm rounded-xl'>Back</Link>
                 <h1 className='text-3xl font-semibold my-4 '>Edit Film Details</h1>
-                {loading ? <Wave /> :
+                {pageLoading ? <Wave /> :
                     <div className='my-4'>
                         <label htmlFor="title" className='block text-md mb-2'>Title</label>
                         <input
@@ -102,9 +103,12 @@ const EditFilm = () => {
                             enqueueSnackbar={enqueueSnackbar}
                         />
 
-                        <button onClick={handleSubmit} className='w-full bg-green-500
-                                hover:bg-green-800 text-white py-2 px-4 rounded-md mt-4'>
-                            Save Changes
+                        <button 
+                            onClick={handleSubmit} 
+                            className={`w-full bg-green-500 ${loading ? "disable !bg-green-800" : ""}
+                                hover:bg-green-800 text-white py-2 px-4 rounded-md mt-4`}
+                        >
+                            {loading ? <Wave size="small" /> : "Save Changes"}
                         </button>
                     </div>
                 }
