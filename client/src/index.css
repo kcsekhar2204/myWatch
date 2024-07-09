@@ -11,3 +11,7 @@
     50% { transform: scaleY(2);}
     100% { transform: scaleY(1);}
 }
+
+.shadow-base-content {
+    --tw-shadow-color: oklch(var(--bc)/ 0.1) 
+}

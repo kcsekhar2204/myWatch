@@ -2,14 +2,14 @@ import React from 'react'
 
 const FilmCard = ({ film }) => {
   return (
-    <div className="relative group block bg-base-300 h-80 w-56 rounded-3xl shadow-3xl">
+    <div className="relative group block h-80 w-56">
       <img
-        class="absolute inset-0 object-cover h-full group-hover:opacity-50 rounded-3xl"
+        class="object-cover h-full group-hover:opacity-50 rounded-3xl shadow-lg shadow-base-content"
         src={film?.image}
         alt={film?.title}
       />
       <div
-        class="transition-all transform translate-y-8 opacity-0 
+        class="absolute z-[1] inset-0 transition-all transform translate-y-8 opacity-0 
                 group-hover:opacity-100 group-hover:translate-y-0
                 flex flex-col justify-between p-4 h-full w-full"
       >

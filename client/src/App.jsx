@@ -5,10 +5,12 @@ import Admin from "./pages/Admin"
 import EditFilm from "./pages/EditFilm"
 import AddFilm from "./pages/AddFilm"
 import Home from "./pages/Home"
+import Navbar from "./components/Navbar"
 
 function App() {
   return (
     <>
+      <Navbar/>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route
