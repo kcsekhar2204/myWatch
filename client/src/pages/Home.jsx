@@ -17,7 +17,7 @@ const Home = () => {
             });
     }, []);
 
-    const latestFilms = filmData.slice(0, 5);
+    const latestFilms = filmData.slice(0, 8);
 
     return (
         <div className="p-4 max-w-[1300px] mx-auto my-16">
@@ -30,7 +30,7 @@ const Home = () => {
                         Presenting a diverse array of global movie and series hits.
                     </p>
                     <a href="/films" className="btn btn-accent mt-4">
-                        Cinematic Voyages
+                        CineQuest
                     </a>
                 </div>
             </div>

@@ -6,6 +6,7 @@ import EditFilm from "./pages/EditFilm"
 import AddFilm from "./pages/AddFilm"
 import Home from "./pages/Home"
 import Navbar from "./components/Navbar"
+import WatchList from "./pages/WatchList"
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/watchlist' element={<WatchList />} />
         <Route
           path = "/admin/*"
           element = {

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import ThemeToggleButton from './ThemeToggleButton';
+import WatchListIcon from './WatchListIcon';
 
 const Navbar = () => {
 
@@ -25,7 +26,8 @@ const Navbar = () => {
             </ul>
         </div>
 
-        <div className="navbar-end gap-12">
+        <div className="navbar-end gap-3 lg:gap-12">
+            <WatchListIcon />
             <ThemeToggleButton/>
         </div>
   
