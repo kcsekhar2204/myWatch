@@ -1,15 +1,22 @@
 import React from 'react'
 import { WatchlistIcon } from '../../public/watchlist'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useMyList } from '../context/MyListContext'
 
 const WatchListIcon = () => {
 
     const {myList} = useMyList()
+    const navigate = useNavigate()
+
     return (
         <div>
             <div className="dropdown dropdown-end">
-                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+                <div 
+                    tabIndex={0} 
+                    role="button" 
+                    className="btn btn-ghost btn-circle" 
+                    onClick={() => {if(myList.length === 0)navigate('/watchlist')}}
+                >
                     <div className="indicator">
                         <div className='h-7 w-7 text-base-content'>
                             <WatchlistIcon />
