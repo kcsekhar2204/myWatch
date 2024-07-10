@@ -13,20 +13,22 @@ import Footer from "./components/Footer"
 function App() {
   return (
     <>
-      <Navbar/>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/watchlist' element={<WatchList />} />
-        <Route path='/films' element={<Films />} />
-        <Route
-          path = "/admin/*"
-          element = {
-            <ProtectedRoute>
-              <AdminRoutes />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
+      <Navbar />
+      <main>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/watchlist' element={<WatchList />} />
+          <Route path='/films' element={<Films />} />
+          <Route
+            path="/admin/*"
+            element={
+              <ProtectedRoute>
+                <AdminRoutes />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </main>
       <Footer />
     </>
   )
@@ -35,9 +37,9 @@ function App() {
 const AdminRoutes = () => {
   return (
     <Routes>
-      <Route path = '/' element={ <Admin /> } />
-      <Route path = '/film/add' element={<AddFilm />} />
-      <Route path = '/film/edit/:id' element={<EditFilm />} />
+      <Route path='/' element={<Admin />} />
+      <Route path='/film/add' element={<AddFilm />} />
+      <Route path='/film/edit/:id' element={<EditFilm />} />
     </Routes>
   )
 }

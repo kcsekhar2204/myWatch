@@ -15,3 +15,14 @@
 .shadow-base-content {
     --tw-shadow-color: oklch(var(--bc)/ 0.1) 
 }
+
+#root{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    margin-top: 64px;
+    flex: 1;
+}
