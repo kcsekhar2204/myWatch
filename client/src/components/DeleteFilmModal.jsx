@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useSnackbar } from 'notistack'
+import { config } from '../utils/constants'
 
 let filmId = -1
 
@@ -13,7 +14,7 @@ const DeleteFilmModal = ({films, setFilms}) => {
     setLoading(true);
 
     axios
-      .delete(`http://localhost:3000/film/${filmId}`)
+      .delete(`http://localhost:3000/film/${filmId}`, config)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Product Deleted', { variant: 'success' });

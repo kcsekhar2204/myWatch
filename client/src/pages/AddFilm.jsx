@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
 import Wave from '../components/WaveLoader';
 import SearchDropdown from '../components/SearchDropdown';
+import { config } from '../utils/constants';
 
 const AddFilm = () => {
 
@@ -79,7 +80,7 @@ const AddFilm = () => {
         throw new Error('Image upload failed');
       }
 
-      await axios.post(`http://localhost:3000/film`, { ...filmData, image: uploadedImageUrl });
+      await axios.post(`http://localhost:3000/film`, { ...filmData, image: uploadedImageUrl }, config);
 
       enqueueSnackbar('Film saved successfully', { variant: 'success' });
       navigate('/admin');

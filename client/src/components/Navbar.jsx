@@ -5,6 +5,11 @@ import WatchListIcon from './WatchListIcon';
 
 const Navbar = () => {
 
+    const logout = () => {
+        localStorage.removeItem('token');
+        window.location.href = "/";
+    }
+
     return (
         <div className='w-full bg-base-100 opacity-95 fixed top-0'>
             <div className="navbar max-w-[1200px] mx-auto">
@@ -28,7 +33,10 @@ const Navbar = () => {
                 </div>
 
                 <div className="navbar-end gap-3 lg:gap-12">
-                    <WatchListIcon />
+                    {location.pathname.startsWith('/admin') ?
+                        <button onClick={logout} className='btn bg-base-100'>Logout</button> :
+                        <WatchListIcon />
+                    }
                     <ThemeToggleButton />
                 </div>
 

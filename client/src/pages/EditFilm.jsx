@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from "axios";
 import SearchDropdown from '../components/SearchDropdown';
 import Wave from '../components/WaveLoader';
+import { config } from '../utils/constants';
 
 const EditFilm = () => {
 
@@ -34,7 +35,7 @@ const EditFilm = () => {
     const handleSubmit = () => {
         setLoading(true);
         axios
-            .put(`http://localhost:3000/film/${id}`, filmData)
+            .put(`http://localhost:3000/film/${id}`, filmData, config)
             .then(() => {
                 setLoading(false);
                 enqueueSnackbar('Film edited successfully', { variant: 'success' });
