@@ -2,9 +2,9 @@ import { useSnackbar } from 'notistack';
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from "axios";
-import SearchDropdown from '../components/SearchDropdown';
-import Wave from '../components/WaveLoader';
-import { config, countries, languages } from '../utils/constants';
+import SearchDropdown from '../../components/SearchDropdown';
+import Wave from '../../components/WaveLoader';
+import { config, countries, languages } from '../../utils/constants';
 
 const EditFilm = () => {
 

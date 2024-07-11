@@ -1,9 +1,9 @@
 import React from "react"
 import { Routes, Route, useLocation } from "react-router-dom"
 import ProtectedRoute from "./components/ProtectedRoutes"
-import Admin from "./pages/Admin"
-import EditFilm from "./pages/EditFilm"
-import AddFilm from "./pages/AddFilm"
+import FilmDashboard from "./pages/admin/FilmDashboard"
+import EditFilm from "./pages/admin/EditFilm"
+import AddFilm from "./pages/admin/AddFilm"
 import Home from "./pages/Home"
 import Navbar from "./components/Navbar"
 import WatchList from "./pages/WatchList"
@@ -11,6 +11,8 @@ import Films from "./pages/Films"
 import Footer from "./components/Footer"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
+import Admin from "./pages/admin/Admin"
+import PeopleDashboard from "./pages/admin/PeopleDashboard"
 
 function App() {
 
@@ -44,7 +46,9 @@ function App() {
 const AdminRoutes = () => {
   return (
     <Routes>
-      <Route path='/' element={<Admin />} />
+      <Route path="/" element={<Admin />} />
+      <Route path='/films' element={<FilmDashboard />} />
+      <Route path='/cast_and_crew' element={<PeopleDashboard />} />
       <Route path='/film/add' element={<AddFilm />} />
       <Route path='/film/edit/:id' element={<EditFilm />} />
     </Routes>

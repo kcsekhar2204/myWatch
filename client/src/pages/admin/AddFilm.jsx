@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import axios from "axios";
 import { Link, useNavigate } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
-import Wave from '../components/WaveLoader';
-import SearchDropdown from '../components/SearchDropdown';
-import { config, countries, languages } from '../utils/constants';
+import Wave from '../../components/WaveLoader';
+import SearchDropdown from '../../components/SearchDropdown';
+import { config, countries, languages } from '../../utils/constants';
 
 const AddFilm = () => {
 

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios"
 import { Link } from "react-router-dom";
-import DeleteFilmModal, { deleteModal } from '../components/DeleteFilmModal';
-import Wave from '../components/WaveLoader';
+import DeleteFilmModal, { deleteModal } from '../../components/DeleteFilmModal';
+import Wave from '../../components/WaveLoader';
 
-const Admin = () => {
+const FilmDashboard = () => {
 
     const [films, setFilms] = useState([])
     const [loading, setLoading] = useState(false)
@@ -82,4 +82,4 @@ const Admin = () => {
     )
 }
 
-export default Admin
+export default FilmDashboard

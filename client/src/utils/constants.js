@@ -299,3 +299,8 @@ export const languages = [
     "Hawaiian",
     "Maori"
 ];
+
+export const dashboards = [
+    {'name' : 'Films', 'url' : '/films', 'image' : '/filmDashboard.jpg'},
+    {'name' : 'Cast and Crew', 'url' : '/cast_and_crew', 'image' : '/peopleDashboard.avif'}
+]
