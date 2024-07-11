@@ -34,7 +34,7 @@ const Home = () => {
         return () => {
             window.removeEventListener('resize', handleScreenSizeChange);
         };
-    }, []);
+    }, [filmData]);
 
     return (
         <div className="p-4 max-w-[1300px] mx-auto my-16">
