@@ -5,6 +5,7 @@ import ProductCard from '../components/ProductCard';
 const Home = () => {
 
     const [filmData, setFilmData] = useState([]);
+    const [latestFilms, setLatestFilms] = useState([]);
 
     useEffect(() => {
         axios
@@ -17,7 +18,23 @@ const Home = () => {
             });
     }, []);
 
-    const latestFilms = filmData.slice(0, 8);
+    useEffect(() => {
+        const handleScreenSizeChange = () => {
+            if (window.innerWidth >= 768 && window.innerWidth < 1024) {
+                setLatestFilms(filmData.slice(0, 3))
+            } else {
+                setLatestFilms(filmData.slice(0, 4))
+            }
+        };
+
+        window.addEventListener('resize', handleScreenSizeChange);
+
+        handleScreenSizeChange();
+
+        return () => {
+            window.removeEventListener('resize', handleScreenSizeChange);
+        };
+    }, []);
 
     return (
         <div className="p-4 max-w-[1300px] mx-auto my-16">
