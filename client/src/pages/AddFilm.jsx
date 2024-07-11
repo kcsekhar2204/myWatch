@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
 import Wave from '../components/WaveLoader';
 import SearchDropdown from '../components/SearchDropdown';
-import { config } from '../utils/constants';
+import { config, countries, languages } from '../utils/constants';
 
 const AddFilm = () => {
 
@@ -126,20 +126,19 @@ const AddFilm = () => {
 
           <label htmlFor='country' className='block text-md  mb-2'>Production Country </label>
           <SearchDropdown
-            apiUrl={`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/search/countries`}
             id='country'
             value={filmData?.country}
             onSelect={(e) => setFilmData({ ...filmData, country: e })}
-            enqueueSnackbar={enqueueSnackbar}
+            allOptions={countries}
+            checkAbbrevation={true}
           />
 
           <label htmlFor='language' className='block text-md  mb-2'>Primary Language </label>
           <SearchDropdown
-            apiUrl={`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/search/languages`}
             id='language'
             value={filmData?.language}
             onSelect={(e) => setFilmData({ ...filmData, language: e })}
-            enqueueSnackbar={enqueueSnackbar}
+            allOptions={languages}
           />
 
           <label htmlFor='image' className='block text-lg  mb-2'>Upload Image</label>
