@@ -13,7 +13,7 @@ const Admin = () => {
         setLoading(true);
 
         axios
-            .get('http://localhost:3000/film')
+            .get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/film`)
             .then((res) => {
                 setFilms(res.data.data);
                 setLoading(false)

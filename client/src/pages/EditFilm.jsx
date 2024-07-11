@@ -19,7 +19,7 @@ const EditFilm = () => {
     useEffect(() => {
         setPageLoading(true);
         axios
-            .get(`http://localhost:3000/film/${id}`)
+            .get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/film/${id}`)
             .then((res) => {
                 setFilmData(res.data)
                 setPageLoading(false);
@@ -35,7 +35,7 @@ const EditFilm = () => {
     const handleSubmit = () => {
         setLoading(true);
         axios
-            .put(`http://localhost:3000/film/${id}`, filmData, config)
+            .put(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/film/${id}`, filmData, config)
             .then(() => {
                 setLoading(false);
                 enqueueSnackbar('Film edited successfully', { variant: 'success' });
@@ -88,7 +88,7 @@ const EditFilm = () => {
 
                         <label htmlFor='country' className='block text-md  mb-2'>Production Country </label>
                         <SearchDropdown
-                            apiUrl={`http://localhost:3000/search/countries`}
+                            apiUrl={`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/search/countries`}
                             id='country'
                             value={filmData?.country}
                             onSelect={(e) => handleChange("country", e)}
@@ -97,7 +97,7 @@ const EditFilm = () => {
 
                         <label htmlFor='language' className='block text-md  mb-2'>Primary Language </label>
                         <SearchDropdown
-                            apiUrl={`http://localhost:3000/search/languages`}
+                            apiUrl={`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/search/languages`}
                             id='language'
                             value={filmData?.language}
                             onSelect={(e) => handleChange("language", e)}

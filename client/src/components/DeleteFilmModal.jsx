@@ -14,7 +14,7 @@ const DeleteFilmModal = ({films, setFilms}) => {
     setLoading(true);
 
     axios
-      .delete(`http://localhost:3000/film/${filmId}`, config)
+      .delete(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/film/${filmId}`, config)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Product Deleted', { variant: 'success' });

@@ -52,7 +52,7 @@ const AddFilm = () => {
     data.append('file', img);
 
     try {
-      const uploadUrl = (`http://localhost:3000/upload-image`);
+      const uploadUrl = (`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/upload-image`);
       const res = await axios.post(uploadUrl, data);
 
       const { secure_url } = res.data;
@@ -80,7 +80,7 @@ const AddFilm = () => {
         throw new Error('Image upload failed');
       }
 
-      await axios.post(`http://localhost:3000/film`, { ...filmData, image: uploadedImageUrl }, config);
+      await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/film`, { ...filmData, image: uploadedImageUrl }, config);
 
       enqueueSnackbar('Film saved successfully', { variant: 'success' });
       navigate('/admin');
@@ -126,7 +126,7 @@ const AddFilm = () => {
 
           <label htmlFor='country' className='block text-md  mb-2'>Production Country </label>
           <SearchDropdown
-            apiUrl={`http://localhost:3000/search/countries`}
+            apiUrl={`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/search/countries`}
             id='country'
             value={filmData?.country}
             onSelect={(e) => setFilmData({ ...filmData, country: e })}
@@ -135,7 +135,7 @@ const AddFilm = () => {
 
           <label htmlFor='language' className='block text-md  mb-2'>Primary Language </label>
           <SearchDropdown
-            apiUrl={`http://localhost:3000/search/languages`}
+            apiUrl={`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/search/languages`}
             id='language'
             value={filmData?.language}
             onSelect={(e) => setFilmData({ ...filmData, language: e })}
