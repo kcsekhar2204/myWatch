@@ -1,11 +1,12 @@
 import React from 'react'
+import { supportUs } from '../utils/constants'
 
 const Footer = () => {
     return (
         <footer className="footer bg-neutral text-neutral-content p-10 items-start">
             <aside>
                 <div className='gap-4 flex items-center'>
-                    <img src="public/logo-2.png" className='h-8 w-8' />
+                    <img src="/logo-2.png" className='h-8 w-8' />
                     <span className="font-bold text-lg">MovieWiz</span>
                 </div>
                 <p>
@@ -14,8 +15,8 @@ const Footer = () => {
             </aside>
             <nav>
                 <h6 className="footer-title">Support</h6>
-                <a className="link link-hover">moviewiz@test.com</a>
-                <a className="link link-hover">+99 999 99</a>
+                <a className="link link-hover" href={`mailto:${supportUs.email}`}>{supportUs.email}</a>
+                <a className="link link-hover" href={`tel:${supportUs.phoneNo.replace(/\s/g, "")}`}>{supportUs.phoneNo}</a>
             </nav>
             <nav>
                 <h6 className="footer-title">Social</h6>

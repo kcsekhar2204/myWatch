@@ -7,6 +7,7 @@ import multer from "multer"
 import { CloudinaryStorage } from "multer-storage-cloudinary"
 import filmRoute from "./routes/filmRoute.js"
 import searchApi from "./routes/searchAPIRoute.js"
+import { authRouter } from "./controllers/authController.js"
 
 config();
 
@@ -63,3 +64,5 @@ app.post('/upload-image', parser.single('file'), (req, res) => {
         res.status(500).send({message: 'Internal server error'})
     }
 })
+
+app.use('/auth', authRouter)

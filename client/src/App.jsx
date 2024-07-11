@@ -9,8 +9,13 @@ import Navbar from "./components/Navbar"
 import WatchList from "./pages/WatchList"
 import Films from "./pages/Films"
 import Footer from "./components/Footer"
+import Login from "./pages/Login"
+import Register from "./pages/Register"
 
 function App() {
+
+  const isAdminRoute = location.pathname.startsWith('/admin');
+
   return (
     <>
       <Navbar />
@@ -19,6 +24,8 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/watchlist' element={<WatchList />} />
           <Route path='/films' element={<Films />} />
+          <Route path='login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
           <Route
             path="/admin/*"
             element={
@@ -29,7 +36,7 @@ function App() {
           />
         </Routes>
       </main>
-      <Footer />
+      {isAdminRoute ? "" : <Footer /> }
     </>
   )
 }
