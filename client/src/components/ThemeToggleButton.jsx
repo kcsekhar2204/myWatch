@@ -6,7 +6,7 @@ const ThemeToggleButton = () => {
   const {theme, setTheme} = useTheme()
 
   useEffect(() => {
-    const currentTheme = theme || document.documentElement.getAttribute('data-theme');
+    const currentTheme = theme;
     setIsDarkMode(currentTheme === 'dark');
   }, []);
 

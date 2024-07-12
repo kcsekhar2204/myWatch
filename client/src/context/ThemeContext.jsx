@@ -7,7 +7,7 @@ export const useTheme = () => useContext(ThemeContext);
 export const ThemeProvider = ({ children }) => {
     const [theme, setTheme] = useState(() => {
         const localData = localStorage.getItem('theme');
-        return localData ? JSON.parse(localData) : [];
+        return localData ? JSON.parse(localData) : document.documentElement.getAttribute('data-theme');
     });
 
     useEffect(() => {
