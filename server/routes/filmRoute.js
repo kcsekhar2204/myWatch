@@ -59,6 +59,46 @@ router.get('/:id', async (req, res) => {
   }
 })
 
+router.get('/search/:title', async (req, res) => {
+  try {
+
+    const { title } = req.params;
+    const regexTitle = new RegExp(title.replace(/_/g, ' '), 'i'); // Create case-insensitive regex
+
+    const films = await Film.find({ title: {$regex: regexTitle} })
+
+    if (films.length === 0) {
+      return res.status(404).json({ message: 'Film not found' });
+    }
+
+    return res.status(200).json(films);
+
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send({ message: error.message })
+  }
+})
+
+router.get('/title/:title', async (req, res) => {
+  try {
+
+    const { title } = req.params;
+    const regexTitle = new RegExp(`^${title.replace(/_/g, ' ')}$`, 'i');
+
+    const film = await Film.findOne({ title: {$regex: regexTitle} })
+
+    if (!!!film) {
+      return res.status(404).json({ message: 'Film not found' });
+    }
+
+    return res.status(200).json(film);
+
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send({ message: error.message })
+  }
+})
+
 router.delete('/:id', auth, async (req, res) => {
   try {
 

@@ -13,6 +13,8 @@ import Login from "./pages/Login"
 import Register from "./pages/Register"
 import Admin from "./pages/admin/Admin"
 import PeopleDashboard from "./pages/admin/PeopleDashboard"
+import FilmDetail from "./pages/FilmDetail"
+import CrewDetail from "./pages/CrewDetail"
 
 function App() {
 
@@ -26,6 +28,8 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/watchlist' element={<WatchList />} />
           <Route path='/films' element={<Films />} />
+          <Route path='/films/:title' element={<FilmDetail />} />
+          <Route path='/name/:name' element={<CrewDetail />} />
           <Route path='login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route
