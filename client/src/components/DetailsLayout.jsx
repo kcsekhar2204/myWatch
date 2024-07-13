@@ -37,7 +37,7 @@ const DetailsLayout = ({ Ads, pageLoading, data, cast, filmsList }) => {
                             <img
                                 src={data.image}
                                 alt={data.title}
-                                className='object-cover h-80 rounded-3xl'
+                                className='object-cover h-80 w-56 rounded-3xl'
                             />
                         </figure>
                         <div className="card-body">
