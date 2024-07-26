@@ -141,7 +141,7 @@ const AddFilm = () => {
             allOptions={languages}
           />
 
-          <label htmlFor='image' className='block text-lg  mb-2'>Upload Image</label>
+          <label htmlFor='image' className='block text-lg mb-2'>Upload Image</label>
           <input
             id="image"
             type="file"
@@ -150,7 +150,6 @@ const AddFilm = () => {
             className='w-full border border-base-300 px-4 py-2 rounded-md'
             required
           />
-
 
           {imgPreview && (
             <div className='my-4'> 

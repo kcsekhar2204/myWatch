@@ -34,7 +34,7 @@ const DeleteFilmModal = ({films, setFilms}) => {
   }
 
   return (
-    <dialog id="my_modal" className="modal modal-bottom sm:modal-middle">
+    <dialog id="delete_modal" className="modal modal-bottom sm:modal-middle">
       <div className='modal-box'>
         <h2 className='text-2xl mb-4 font-semibold '>
           Are You Sure You Want to Delete This Product?
@@ -64,6 +64,6 @@ const DeleteFilmModal = ({films, setFilms}) => {
 export default DeleteFilmModal
 
 export const deleteModal = (id) => {
-  document.getElementById('my_modal').showModal()
+  document.getElementById('delete_modal').showModal()
   filmId = id
 }
