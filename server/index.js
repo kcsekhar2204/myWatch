@@ -6,7 +6,6 @@ import { v2 as cloudinary } from "cloudinary"
 import multer from "multer"
 import { CloudinaryStorage } from "multer-storage-cloudinary"
 import filmRoute from "./routes/filmRoute.js"
-import searchApi from "./routes/searchAPIRoute.js"
 import { authRouter } from "./controllers/authController.js"
 
 config();
@@ -25,7 +24,6 @@ mongoose
 app.use(express.json())
 
 app.use('/film', filmRoute)
-app.use('/search', searchApi)
 
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,

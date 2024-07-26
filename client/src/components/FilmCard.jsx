@@ -1,12 +1,20 @@
 import React from 'react'
 import { useMyList } from '../context/MyListContext'
 import TagIcon from '../../public/tag.jsx'
+import { useNavigate } from 'react-router-dom'
 
 const FilmCard = ({ film }) => {
 
   const { myList, addFilmToList, removeFilmFromList } = useMyList()
 
   const itemInList = myList.find(item => item._id === film._id)
+  const navigate = useNavigate()
+
+  const nextPage = () => {
+    const titlepattern = film.title.replace(/ /g, '_')
+    console.log(titlepattern)
+    navigate(`/films/${titlepattern}`)
+  }
 
   return (
     <div className="relative group block h-80 w-56">
@@ -43,7 +51,7 @@ const FilmCard = ({ film }) => {
           <h2 className="capitalize">{film?.title}</h2>
           <p>{film?.country}, {film?.language}</p>
         </div>
-        <div className="card-actions justify-end">
+        <div className="card-actions justify-end" onClick = {nextPage}>
           <button className="btn btn-primary">View</button>
         </div>
       </div>

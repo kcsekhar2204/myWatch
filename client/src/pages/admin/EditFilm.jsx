@@ -2,9 +2,9 @@ import { useSnackbar } from 'notistack';
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from "axios";
-import SearchDropdown from '../components/SearchDropdown';
-import Wave from '../components/WaveLoader';
-import { config } from '../utils/constants';
+import SearchDropdown from '../../components/SearchDropdown';
+import Wave from '../../components/WaveLoader';
+import { config, countries, languages } from '../../utils/constants';
 
 const EditFilm = () => {
 
@@ -88,24 +88,23 @@ const EditFilm = () => {
 
                         <label htmlFor='country' className='block text-md  mb-2'>Production Country </label>
                         <SearchDropdown
-                            apiUrl={`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/search/countries`}
                             id='country'
                             value={filmData?.country}
                             onSelect={(e) => handleChange("country", e)}
-                            enqueueSnackbar={enqueueSnackbar}
+                            allOptions={countries}
+                            checkAbbrevation={true}
                         />
 
                         <label htmlFor='language' className='block text-md  mb-2'>Primary Language </label>
                         <SearchDropdown
-                            apiUrl={`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/search/languages`}
                             id='language'
                             value={filmData?.language}
                             onSelect={(e) => handleChange("language", e)}
-                            enqueueSnackbar={enqueueSnackbar}
+                            allOptions={languages}
                         />
 
-                        <button 
-                            onClick={handleSubmit} 
+                        <button
+                            onClick={handleSubmit}
                             className={`w-full bg-green-500 ${loading ? "disable !bg-green-800" : ""}
                                 hover:bg-green-800 text-white py-2 px-4 rounded-md mt-4`}
                         >
